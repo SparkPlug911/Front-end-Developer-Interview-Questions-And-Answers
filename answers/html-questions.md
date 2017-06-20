@@ -48,7 +48,9 @@ attributes, or other hacks like that.
 
 #### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
-*Not answered yet*
+A cookie is of max 4093bytes, is sent with every request and is generally used to store user preferences (like remembering account password).
+A sessionStorage takes up a max of 2.5Mbs+ (depends on browser), is used to store session variables i.e login sessions of the user. It is not sent with every request and is deleted on closing the browser.
+The localStorage also takes up a max of 2.5Mbs+ (depending on browser), and is used to cache pages. They are not deleted on closing the browser and are not sent on every request.
 
 #### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
@@ -61,8 +63,8 @@ attributes, or other hacks like that.
 
 #### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 
-*Not answered yet*
-
+The <link> tag is placed between <head></head> tags to avoid *Flash of Unstyled Content*. If the link is not found first, the browser shows the user unstyled html, till the CSS is found.
+Since Javascript is mainly used for DOM manipulation, if the script is loaded before the document, it would throw an error when it won't be able to find the required DOM elements to act upon, thus stalling any further JS operations.
 #### What is progressive rendering?
 
 When a HTTP response is flushed multiple times, a browser doesn't wait until
